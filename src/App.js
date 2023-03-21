@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+import {Container,Heading,Span,Para,Button} from './styledComponents';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App=()=>{
+  const [count,setCount]=useState(0);
+
+  const onClickCount=()=>{
+    setCount(prevState=>(prevState+1))
+  }
+
+  return(
+    <Container>
+      <Heading>The Button has been clicked <Span>{count} </Span> times</Heading>
+      <Para>Click the button to increase the count!</Para>
+      <Button onClick={onClickCount}>Click Me!</Button>
+    </Container>
+  )
 }
 
 export default App;
